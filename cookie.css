@@ -1,0 +1,52 @@
+body {
+  font-family: 'Quicksand', sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+#cookie-settings {
+  background: url('images/hero\ bg.png') no-repeat center center;
+  background-size: cover; /* Ensure the background image covers the entire container */
+  color: #fff; /* Set a default text color for better contrast with the background */
+  padding: 20px;
+  max-width: 600px;
+  margin: 20px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  position: relative; /* To ensure the background image is properly positioned */
+  z-index: 1;
+}
+
+#cookie-settings h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+  color: #3BB77E; /* Changed color */
+}
+
+#cookie-settings label {
+  display: block;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+#cookie-settings input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+#cookie-settings button {
+  background-color: #3BB77E;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#cookie-settings button:hover {
+  background-color: #228B22;
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #3BB77E;
+}
