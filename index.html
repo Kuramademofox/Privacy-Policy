@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div id="cookies-card" class="cookies-card">
+        <button class="close-btn" onclick="hideCookiesCard()">×</button>
+        <p class="title">We Use Cookies</p>
+        <p class="info">We use cookies to ensure that we give you the best experience on our website.<a href="cookie-policy.html" target="_blank"> Read more </a></p>
+        <button class="cta" onclick="acceptCookies()">Accept all</button>
+        <a href="cookie-settings.html" class="settings">Cookies settings</a> <!-- Link to your cookie settings page -->
+    </div>
+
+    <script>
+        // Show the cookies card after a delay
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.getElementById('cookies-card').classList.add('show');
+            }, 1000); // Show after 1 second
+        });
+
+        // Hide the cookies card
+        function hideCookiesCard() {
+            document.getElementById('cookies-card').classList.remove('show');
+        }
+
+        // Function to handle "Accept" button click
+        function acceptCookies() {
+            // You can add code here to save the user's consent in cookies/localStorage
+            localStorage.setItem('cookies-accepted', 'true'); // Example to store consent
+            hideCookiesCard();
+            window.location.href = 'thank-you.html'; // Redirect to a thank-you or home page
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+          const cookiesCard = document.querySelector('.cookies-card');
+          let isDragging = false;
+          let offsetX, offsetY;
+
+          cookiesCard.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            offsetX = e.clientX - cookiesCard.getBoundingClientRect().left;
+            offsetY = e.clientY - cookiesCard.getBoundingClientRect().top;
+            cookiesCard.style.transition = 'none'; // Disable transition during dragging
+          });
+
+          document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+              cookiesCard.style.left = `${e.clientX - offsetX}px`;
+              cookiesCard.style.top = `${e.clientY - offsetY}px`;
+              cookiesCard.style.right = 'auto'; // Reset right property to allow dragging left
+              cookiesCard.style.bottom = 'auto'; // Reset bottom property to allow dragging up
+            }
+          });
+
+          document.addEventListener('mouseup', () => {
+            isDragging = false;
+            cookiesCard.style.transition = 'all 0.3s ease'; // Re-enable transition after dragging
+          });
+        });
+
+    </script>
+</body>
+
+</html>
